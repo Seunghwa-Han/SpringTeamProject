@@ -18,7 +18,7 @@ public class UserController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/loginOk", method = RequestMethod.POST)
+	@RequestMapping(value = "/login/loginOk", method = RequestMethod.POST)
 	public String loginCheck(HttpSession session, UserVO vo) {
 		String returnURL = "";
 		if (session.getAttribute("login") != null) {
@@ -40,7 +40,7 @@ public class UserController {
 	}
 
 	// 로그아웃 하는 부분 
-	@RequestMapping(value="/logout")
+	@RequestMapping(value="/login/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/login/login";
