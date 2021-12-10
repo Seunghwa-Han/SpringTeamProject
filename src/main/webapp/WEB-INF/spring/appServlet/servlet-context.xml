@@ -31,7 +31,6 @@
 		class="com.mycompany.spring.user.LoginCheckInterceptor">
 	</beans:bean>
 
-
 	<context:component-scan
 		base-package="com.mycompany.spring" />
 
@@ -44,5 +43,4 @@
 			<beans:ref bean="LoginCheckInterceptor" />
 		</interceptor>
 	</interceptors>
-
 </beans:beans>
