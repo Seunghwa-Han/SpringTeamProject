@@ -9,6 +9,14 @@ public class BoardVO {
 	private int age;
 	private String phoneNum;
 	private String email;
+	private String photo;
+	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public int getId() {
 		return id;
 	}
