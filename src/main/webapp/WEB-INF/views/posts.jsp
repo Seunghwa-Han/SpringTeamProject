@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page
+	import="com.mycompany.spring.board.BoardDAO, com.mycompany.spring.board.BoardVO,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -98,7 +100,7 @@
 			<div class="container">
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-					<c:forEach var="i" begin="0" end="9">
+					<c:forEach items="${list}" var="u">
 						<div class="col">
 							<div class="card shadow-sm">
 								<svg class="bd-placeholder-img card-img-top" width="100%"
@@ -110,6 +112,12 @@
 								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
 								<div class="card-body">
+									<p class="card-text">${u.getName()}</p>
+									<p class="card-text">${u.getPhoneNum()}</p>
+									<p class="card-text">이메일: ${u.getEmail()}</p>
+									<p class="card-text">음악: ${u.getMusic()}</p>
+									<p class="card-text">성별: ${u.getGender()}</p>
+									<p class="card-text">나이: ${u.getAge()}</p>
 									<p class="card-text">This is a wider card with supporting
 										text below as a natural lead-in to additional content. This
 										content is a little bit longer.</p>
@@ -122,7 +130,7 @@
 											<button type="button"
 												class="btn btn-sm btn-outline-secondary">Del</button>
 										</div>
-										<small class="text-muted">9 mins</small>
+										<small class="text-muted">${u.getid()}</small>
 									</div>
 								</div>
 							</div>
