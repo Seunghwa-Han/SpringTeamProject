@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 
 <!-- Bootstrap core CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <style>
 .bd-placeholder-img {
@@ -41,45 +43,52 @@
 			</div>
 
 			<div class="row g-5">
-				
+
 				<div class="col-md-7 col-lg-8">
 					<h4 class="mb-3">Friend Information</h4>
 					<form action="addok" method="post">
 						<div class="row g-3">
 							<div class="col-sm-6">
-								<label for="name" class="form-label">Name</label> <input 
-								type="text" name="name" placeholder="" id="name" class="form-control"/>
+								<label for="name" class="form-label">Name</label> <input
+									type="text" name="name" placeholder="" id="name"
+									class="form-control" />
 							</div>
 
 							<div class="col-12">
-								<label for="email" class="form-label">Email </label> <input 
-								type="text" name="email" id="email" class="form-control" placeholder="you@example.com">
+								<label for="email" class="form-label">Email </label> <input
+									type="text" name="email" id="email" class="form-control"
+									placeholder="you@example.com">
 							</div>
 
 							<div class="col-12">
-								<label for="phoneNumber" class="form-label">Phone Number</label> <input
-									type="text" name="phoneNum" id="phoneNumber" class="form-control" placeholder="010-0000-0000">
+								<label for="phoneNumber" class="form-label">Phone Number</label>
+								<input type="text" name="phoneNum" id="phoneNumber"
+									class="form-control" placeholder="010-0000-0000">
 							</div>
 
 							<div class="col-12">
-								<label for="music" class="form-label">Music</label> <input 
-								type="text" name="music" id="music" class="form-control" placeholder="">
+								<label for="music" class="form-label">Music</label> <input
+									type="text" name="music" id="music" class="form-control"
+									placeholder="">
 							</div>
-							
+
 							<div class="col-12">
-								<label for="age" class="form-label">Age</label> <input 
-								type="number" min="0" max="150" name="age" id="age" class="form-control" placeholder="">
+								<label for="age" class="form-label">Age</label> <input
+									type="number" min="0" max="150" name="age" id="age"
+									class="form-control" placeholder="">
 							</div>
 
 							<div class="col-md-5">
-								<label for="gender" class="form-label">Gender</label> <select
-									class="form-select" name="gender" id="gender">
-									<option value="">Choose...</option>
-									<option>여자</option>
-									<option>남자</option>
-								</select>
+								<label for="gender" class="form-label">Gender</label>
+								<div>
+									<input type="radio" id="contactChoice1" name="gender"
+										value="여자"> <label for="contactChoice1">여자</label> 
+										
+									<input type="radio" id="contactChoice2" name="gender" value="남자">
+									<label for="contactChoice2">남자</label>
+								</div>
 							</div>
-							
+
 						</div>
 
 						<hr class="my-4">
@@ -91,7 +100,7 @@
 		</main>
 
 		<footer class="my-5 pt-5 text-muted text-center text-small">
-			<p class="mb-1">&copy; 2021 실전프로젝트 </p>
+			<p class="mb-1">&copy; 2021 실전프로젝트</p>
 			<ul class="list-inline">
 				<li class="list-inline-item"><a href="#">Privacy</a></li>
 				<li class="list-inline-item"><a href="#">Terms</a></li>
@@ -100,7 +109,8 @@
 		</footer>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
