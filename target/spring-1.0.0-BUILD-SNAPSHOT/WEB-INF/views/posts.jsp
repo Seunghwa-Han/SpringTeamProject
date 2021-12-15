@@ -130,7 +130,7 @@
 											<button type="button"
 												class="btn btn-sm btn-outline-secondary">Del</button>
 										</div>
-										<small class="text-muted">${u.getId()}</small>
+										<small class="text-muted">${u.getid()}</small>
 									</div>
 								</div>
 							</div>
