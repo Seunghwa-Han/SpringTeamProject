@@ -1,10 +1,15 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page
+	import="com.mycompany.spring.board.BoardDAO, com.mycompany.spring.board.BoardVO,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="canonical" href="http://localhost:8080/spring/posts.jsp">
 
 <!-- Bootstrap core CSS -->
 <link
@@ -26,91 +31,143 @@
 	}
 }
 </style>
+
+<script>
+	function delete_ok(id) {
+		var a = confirm("정말로 삭제하겠습니까?");
+		if (a)
+			location.href = 'delete/'+id;
+	}
+</script>
+
 </head>
-<body class="bg-light">
+<body>
 
-	<div class="container">
-		<main>
-			<div class="py-5 text-center">
-				<img class="d-block mx-auto mb-4"
-					src="../assets/brand/bootstrap-logo.svg" alt="" width="72"
-					height="57">
-				<h2>Add Friend Form</h2>
-				<p class="lead">Below is an example form built entirely with
-					Bootstrap’s form controls. Each required form group has a
-					validation state that can be triggered by attempting to submit the
-					form without completing it.</p>
-			</div>
-
-			<div class="row g-5">
-
-				<div class="col-md-7 col-lg-8">
-					<h4 class="mb-3">Friend Information</h4>
-					<form action="addok" method="post">
-						<div class="row g-3">
-							<div class="col-sm-6">
-								<label for="name" class="form-label">Name</label> <input
-									type="text" name="name" placeholder="" id="name"
-									class="form-control" />
-							</div>
-
-							<div class="col-12">
-								<label for="email" class="form-label">Email </label> <input
-									type="text" name="email" id="email" class="form-control"
-									placeholder="you@example.com">
-							</div>
-
-							<div class="col-12">
-								<label for="phoneNumber" class="form-label">Phone Number</label>
-								<input type="text" name="phoneNum" id="phoneNumber"
-									class="form-control" placeholder="010-0000-0000">
-							</div>
-
-							<div class="col-12">
-								<label for="music" class="form-label">Music</label> <input
-									type="text" name="music" id="music" class="form-control"
-									placeholder="">
-							</div>
-
-							<div class="col-12">
-								<label for="age" class="form-label">Age</label> <input
-									type="number" min="0" max="150" name="age" id="age"
-									class="form-control" placeholder="">
-							</div>
-
-							<div class="col-md-5">
-								<label for="gender" class="form-label">Gender</label>
-								<div>
-									<input type="radio" id="contactChoice1" name="gender"
-										value="여자"> <label for="contactChoice1">여자</label> 
-										
-									<input type="radio" id="contactChoice2" name="gender" value="남자">
-									<label for="contactChoice2">남자</label>
-								</div>
-							</div>
-
-						</div>
-
-						<hr class="my-4">
-
-						<button class="w-100 btn btn-primary btn-lg" type="submit">Add</button>
-					</form>
+	<header>
+		<div class="collapse bg-dark" id="navbarHeader">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-md-7 py-4">
+						<h4 class="text-white">About</h4>
+						<p class="text-muted">Add some information about the album
+							below, the author, or any other background context. Make it a few
+							sentences long so folks can pick up some informative tidbits.
+							Then, link them off to some social networking sites or contact
+							information.</p>
+					</div>
+					<div class="col-sm-4 offset-md-1 py-4">
+						<h4 class="text-white">Contact</h4>
+						<ul class="list-unstyled">
+							<li><a href="#" class="text-white">Follow on Twitter</a></li>
+							<li><a href="#" class="text-white">Like on Facebook</a></li>
+							<li><a href="#" class="text-white">Email me</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</main>
+		</div>
+		<div class="navbar navbar-dark bg-dark shadow-sm">
+			<div class="container">
+				<a href="#" class="navbar-brand d-flex align-items-center"> <svg
+						xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+						fill="none" stroke="currentColor" stroke-linecap="round"
+						stroke-linejoin="round" stroke-width="2" aria-hidden="true"
+						class="me-2" viewBox="0 0 24 24">
+						<path
+							d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+						<circle cx="12" cy="13" r="4" /></svg> <strong>Album</strong>
+				</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+					aria-controls="navbarHeader" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</div>
+	</header>
 
-		<footer class="my-5 pt-5 text-muted text-center text-small">
-			<p class="mb-1">&copy; 2021 실전프로젝트</p>
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="#">Privacy</a></li>
-				<li class="list-inline-item"><a href="#">Terms</a></li>
-				<li class="list-inline-item"><a href="#">Support</a></li>
-			</ul>
-		</footer>
-	</div>
+	<main>
+
+		<section class="py-5 text-center container">
+			<div class="row py-lg-5">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<h1 class="fw-light">Album example</h1>
+					<p class="lead text-muted">Something short and leading about
+						the collection below—its contents, the creator, etc. Make it short
+						and sweet, but not too short so folks don’t simply skip over it
+						entirely.</p>
+					<p>
+						<a href="add" class="btn btn-primary my-2">Add new friend</a> 
+						<a href="#" class="btn btn-secondary my-2">Secondary action</a>
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="album py-5 bg-light">
+			<div class="container">
+
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+					<c:forEach items="${list}" var="u">
+						<div class="col">
+							<div class="card shadow-sm">
+								<svg class="bd-placeholder-img card-img-top" width="100%"
+									height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+									aria-label="Placeholder: Thumbnail"
+									preserveAspectRatio="xMidYMid slice" focusable="false">
+								<title>Placeholder</title><rect width="100%" height="100%"
+										fill="#55595c" />
+								<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+								<div class="card-body">
+									<p class="card-text">${u.getName()}</p>
+									<p class="card-text">${u.getPhoneNum()}</p>
+									<p class="card-text">이메일: ${u.getEmail()}</p>
+									<p class="card-text">음악: ${u.getMusic()}</p>
+									<p class="card-text">성별: ${u.getGender()}</p>
+									<p class="card-text">나이: ${u.getAge()}</p>
+									<p class="card-text">This is a wider card with supporting
+										text below as a natural lead-in to additional content. This
+										content is a little bit longer.</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<button type="button" 
+												class="btn btn-sm btn-outline-secondary">View</button>
+											<button type="button" onclick="location.href='editpost/${u.id}'"
+												class="btn btn-sm btn-outline-secondary">Edit</button>
+											<button type="button" onclick="location.href='javascript:delete_ok('${u.seq}')'"
+												class="btn btn-sm btn-outline-secondary">Del</button>
+										</div>
+										<small class="text-muted">${u.getid()}</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+	<footer class="text-muted py-5">
+		<div class="container">
+			<p class="float-end mb-1">
+				<a href="#">Back to top</a>
+			</p>
+			<p class="mb-1">Album example is &copy; Bootstrap, but please
+				download and customize it for yourself!</p>
+			<p class="mb-0">
+				New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
+					href="../getting-started/introduction/">getting started guide</a>.
+			</p>
+		</div>
+	</footer>
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
