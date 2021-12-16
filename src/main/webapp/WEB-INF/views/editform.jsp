@@ -29,6 +29,18 @@
 }
 </style>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	if("${boardVO.getGender()}"=="여자"){
+		$('#contactChoice1').prop('checked', true);
+	}
+	if("{boardVO.getGender()}"=="남자"){
+		$('#contactChoice2').prop('checked', true);
+	}
+	
+});
+</script>
 <body class="bg-light">
 
 	<div class="container">

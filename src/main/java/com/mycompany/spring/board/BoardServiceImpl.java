@@ -29,7 +29,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public int updateBoard(BoardVO vo) {
-		return boardDAO.insertBoard(vo);
+		return boardDAO.updateBoard(vo);
 	}
 	
 }

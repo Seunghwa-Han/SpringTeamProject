@@ -35,7 +35,7 @@
 	function delete_ok(id) {
 		var a = confirm("정말로 삭제하겠습니까?");
 		if (a)
-			location.href = 'delete/'+id;
+			location.href = 'deleteok/'+id;
 	}
 </script>
 
@@ -126,16 +126,13 @@
 									<p class="card-text">음악: ${u.getMusic()}</p>
 									<p class="card-text">성별: ${u.getGender()}</p>
 									<p class="card-text">나이: ${u.getAge()}</p>
-									<p class="card-text">This is a wider card with supporting
-										text below as a natural lead-in to additional content. This
-										content is a little bit longer.</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
 											<button type="button" 
 												class="btn btn-sm btn-outline-secondary">View</button>
 											<button type="button" onclick="location.href='editpost/${u.id}'"
 												class="btn btn-sm btn-outline-secondary">Edit</button>
-											<button type="button" onclick="location.href='javascript:delete_ok('${u.seq}')'"
+											<button type="button" onclick="location.href='javascript:delete_ok(\'${u.id}\')'"
 												class="btn btn-sm btn-outline-secondary">Del</button>
 										</div>
 										<small class="text-muted">${u.getId()}</small>
