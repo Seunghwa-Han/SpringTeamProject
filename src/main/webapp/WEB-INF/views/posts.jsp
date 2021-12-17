@@ -94,7 +94,8 @@
 					<h1 class="fw-light">실전 프로젝트1</h1>
 					<p class="lead text-muted">${loginvo.getUsername()}님 안녕하세요! </p>
 					<p>
-						<a href="add" class="btn btn-primary my-2">Add new friend</a> 
+						<a href="add" class="btn btn-primary my-2">Add new friend</a>
+						<a href="../login/logout" class="btn btn-secondary my-2">logout</a>  
 					</p>
 				</div>
 			</div>
