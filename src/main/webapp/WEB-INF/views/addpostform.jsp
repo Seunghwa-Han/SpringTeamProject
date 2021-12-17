@@ -77,6 +77,13 @@
 									type="number" min="0" max="150" name="age" id="age"
 									class="form-control" placeholder="">
 							</div>
+							
+							<div class="col-12">
+								<label for="file" class="form-label">Photo</label> <input
+								 type="file" name="photo" class="form-control" />
+
+
+							</div>
 
 							<div class="col-md-5">
 								<label for="gender" class="form-label">Gender</label>

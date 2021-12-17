@@ -37,6 +37,7 @@ public class BoardController {
 	 @RequestMapping(value="/board/addok",
 	 method = RequestMethod.POST)
 	 public String addPostOk(BoardVO vo) {
+		 
 			int i = boardService.insertBoard(vo);
 			if(i == 0)
 				System.out.println("데이터 추가 실패");
