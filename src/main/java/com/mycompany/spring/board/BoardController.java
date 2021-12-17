@@ -1,11 +1,15 @@
 package com.mycompany.spring.board;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.mycompany.spring.user.UserVO;
 
 
 
@@ -17,8 +21,10 @@ public class BoardController {
 	 
 	 @RequestMapping(value="/board/list",
 	 method = RequestMethod.GET)
-	 public String boardlist(Model model) {
+	 public String boardlist(Model model, HttpSession session) {
 		 model.addAttribute("list", boardService.getBoardList());
+		 UserVO uservo = (UserVO) session.getAttribute("login");
+		 model.addAttribute("loginvo",uservo);
 		 return "posts";
 	 }
 	 
